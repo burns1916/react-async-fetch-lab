@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 class App extends React.Component {
     state = {
-        apiData: []
+        peopleInSpace: []
     }
 
     componentDidMount() {
@@ -11,14 +11,14 @@ class App extends React.Component {
         .then(resp => resp.json())
         .then(data => 
             this.setState({
-                apiData: data
+                peopleInSpace: data.people
             }))
     }
 
     render() {
         return(
             <div>
-                {this.state.apiData.map(data => data)}
+                {this.state.peopleInSpace.map(data => data.people)}
             </div>
         )
     }
